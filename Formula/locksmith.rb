@@ -4,19 +4,19 @@
 class Locksmith < Formula
   desc "Secure keychain-backed secrets manager with biometric authentication"
   homepage "https://github.com/bonjoski/locksmith"
-  version "2.2.6"
+  version "2.3.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/bonjoski/locksmith/releases/download/v2.2.6/locksmith-darwin-arm64"
-      sha256 "a67f4fc4445c15ae8a4d52207c2d11af32bcb31b5a6cb19c24986cf60c919860"
+      url "https://github.com/bonjoski/locksmith/releases/download/v2.3.0/locksmith-darwin-arm64"
+      sha256 "a373385f8e5adc2c01643b584416215f7d986a8528c3c04546d5fbb32fa35b3c"
 
       def install
         bin.install "locksmith-darwin-arm64" => "locksmith"
       end
     else
-      url "https://github.com/bonjoski/locksmith/releases/download/v2.2.6/locksmith-darwin-amd64"
-      sha256 "8d1744e46ad8b185d82173515297279862995cf1a9488afc10197524bfd49fea"
+      url "https://github.com/bonjoski/locksmith/releases/download/v2.3.0/locksmith-darwin-amd64"
+      sha256 "b9fb3b901d8d4f513638fb974f98eccf50d37c36f0127b91a2761f9dcbcac073"
 
       def install
         bin.install "locksmith-darwin-amd64" => "locksmith"
