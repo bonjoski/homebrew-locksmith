@@ -9,14 +9,14 @@ class Locksmith < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/bonjoski/locksmith/releases/download/v2.3.0/locksmith-darwin-arm64"
-      sha256 "a373385f8e5adc2c01643b584416215f7d986a8528c3c04546d5fbb32fa35b3c"
+      sha256 "12239726eb29a8876ada3ac24fd5c201b41b79b20013ed5c83d417a2addb409e"
 
       def install
         bin.install "locksmith-darwin-arm64" => "locksmith"
       end
     else
       url "https://github.com/bonjoski/locksmith/releases/download/v2.3.0/locksmith-darwin-amd64"
-      sha256 "b9fb3b901d8d4f513638fb974f98eccf50d37c36f0127b91a2761f9dcbcac073"
+      sha256 "b7a790eac921f4a2acc45b19d44babfd3fbb1af61cf71d99172b047325f19468"
 
       def install
         bin.install "locksmith-darwin-amd64" => "locksmith"
