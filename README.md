@@ -50,7 +50,7 @@ locksmith --version
 summon-locksmith --version
 ```
 
-Both should return the active version (e.g., `v2.4.0`).
+Both should return the active version (e.g., `v2.4.2`).
 
 ---
 
