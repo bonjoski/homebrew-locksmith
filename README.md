@@ -94,7 +94,7 @@ Each binary distributed through this tap is cryptographically signed and include
 brew install gh
 
 # Verify the attestation directly against the release
-gh attestation verify $(which locksmith) --owner bonjoski
+gh attestation verify $(which locksmith) --repo bonjoski/locksmith
 ```
 
 For more detailed configuration, MCP server setup, and advanced settings, visit the main [Locksmith Repository](https://github.com/bonjoski/locksmith).
