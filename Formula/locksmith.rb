@@ -73,8 +73,8 @@ class Locksmith < Formula
   end
 
   on_linux do
-    url "https://github.com/bonjoski/locksmith/archive/refs/tags/v2.9.0.tar.gz"
-    sha256 "164a576940ee1e3d8fb33e3737a55116cd6c8b6aa096c1acd9bd6400841e157e"
+    url "https://github.com/bonjoski/locksmith/archive/refs/tags/v3.0.1.tar.gz"
+    sha256 "1047401ccbe33cf29830d52fceb1c5a98f90070de711a669c870bc6b2874f925"
 
     depends_on "go" => :build
 
@@ -85,6 +85,6 @@ class Locksmith < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/locksmith --version 2>&1")
-    assert_predicate bin/"locksmith-cockpit", :exist?
+    assert_predicate bin/"locksmith-cockpit", :exist? if OS.mac?
   end
 end
