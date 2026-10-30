@@ -4,26 +4,26 @@
 class Locksmith < Formula
   desc "Secure keychain-backed secrets manager with biometric authentication"
   homepage "https://github.com/bonjoski/locksmith"
-  version "3.0.1"
+  version "3.1.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/bonjoski/locksmith/releases/download/v3.0.1/locksmith-darwin-arm64"
-      sha256 "e9d90c18f78f6d27caad07f83f3b73bdf3e8cb80160f44876daeb722949f63b7"
+      url "https://github.com/bonjoski/locksmith/releases/download/v3.1.0/locksmith-darwin-arm64"
+      sha256 "a6a786edbcbcb4e6ce88d44b08ee16f46fd3edf5c6ee5566d8bb90d07a955add"
 
       resource "summon-arm64" do
-        url "https://github.com/bonjoski/locksmith/releases/download/v3.0.1/summon-locksmith-darwin-arm64"
-        sha256 "476ea3f1a21fb58c9100a15fe0f41e16c8a02436664768334108d4b0707cd894"
+        url "https://github.com/bonjoski/locksmith/releases/download/v3.1.0/summon-locksmith-darwin-arm64"
+        sha256 "c19ada50380f216349d8645837501ce36544336711396caad644f67ba881b537"
       end
 
       resource "git-credential-arm64" do
-        url "https://github.com/bonjoski/locksmith/releases/download/v3.0.1/git-credential-locksmith-darwin-arm64"
-        sha256 "9edb9c27b9017ca5f2cf9a2beca6df51a288043cd092aecf5ce2d933fa62c262"
+        url "https://github.com/bonjoski/locksmith/releases/download/v3.1.0/git-credential-locksmith-darwin-arm64"
+        sha256 "0b7b882d67cd4235567adf3eec7ae9068b5cc40272bc064d6fae7471120ebf5d"
       end
 
       resource "cockpit-arm64" do
-        url "https://github.com/bonjoski/locksmith/releases/download/v3.0.1/locksmith-cockpit-darwin-arm64"
-        sha256 "032ccf3da3641a905c3f9a9303ab3354ce4f65b07400e6ee305471c2e8f7a3f3"
+        url "https://github.com/bonjoski/locksmith/releases/download/v3.1.0/locksmith-cockpit-darwin-arm64"
+        sha256 "970724aece0a462cb75b7dd279339c52e59b823cd696fb06ab3617307166771a"
       end
 
       def install
@@ -39,22 +39,22 @@ class Locksmith < Formula
         end
       end
     else
-      url "https://github.com/bonjoski/locksmith/releases/download/v3.0.1/locksmith-darwin-amd64"
-      sha256 "19e280db9ff24b080327a8ece3a299586be01a065960a8d8efe4286a056bee62"
+      url "https://github.com/bonjoski/locksmith/releases/download/v3.1.0/locksmith-darwin-amd64"
+      sha256 "ba8e3b73ab04616198e1d65daed9594f77eb4ba207b5149323204bf2cb60967a"
 
       resource "summon-amd64" do
-        url "https://github.com/bonjoski/locksmith/releases/download/v3.0.1/summon-locksmith-darwin-amd64"
-        sha256 "9a6fbd91aa1a962e2da29f38d415304626bbd9464c0b4d3f0d780919e88e7486"
+        url "https://github.com/bonjoski/locksmith/releases/download/v3.1.0/summon-locksmith-darwin-amd64"
+        sha256 "e6773f7fb029e55219e3a25cba03e87e2b1dd9d3c433afbbfb6e23a759e13ad1"
       end
 
       resource "git-credential-amd64" do
-        url "https://github.com/bonjoski/locksmith/releases/download/v3.0.1/git-credential-locksmith-darwin-amd64"
-        sha256 "579c5b7ed9e10cacf3a541deecd0727160fd8ae454fb2bed744a1d35a8e4dc49"
+        url "https://github.com/bonjoski/locksmith/releases/download/v3.1.0/git-credential-locksmith-darwin-amd64"
+        sha256 "4f7a37b7c12b05eb7229fbe3bb73e8d3cdd96019c36c86f7dbe31c83f08c7288"
       end
 
       resource "cockpit-amd64" do
-        url "https://github.com/bonjoski/locksmith/releases/download/v3.0.1/locksmith-cockpit-darwin-amd64"
-        sha256 "09c979214c72eb2be171186d1d16e511d9c0dba8dc6268ae5169bc506a1e7a8e"
+        url "https://github.com/bonjoski/locksmith/releases/download/v3.1.0/locksmith-cockpit-darwin-amd64"
+        sha256 "16ffb6aebf39193828df4a1befda204d920db3b59efc25d71f3f4da8f83fc447"
       end
 
       def install
@@ -73,8 +73,8 @@ class Locksmith < Formula
   end
 
   on_linux do
-    url "https://github.com/bonjoski/locksmith/archive/refs/tags/v3.0.1.tar.gz"
-    sha256 "1047401ccbe33cf29830d52fceb1c5a98f90070de711a669c870bc6b2874f925"
+    url "https://github.com/bonjoski/locksmith/archive/refs/tags/v2.9.0.tar.gz"
+    sha256 "164a576940ee1e3d8fb33e3737a55116cd6c8b6aa096c1acd9bd6400841e157e"
 
     depends_on "go" => :build
 
@@ -85,6 +85,6 @@ class Locksmith < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/locksmith --version 2>&1")
-    assert_predicate bin/"locksmith-cockpit", :exist? if OS.mac?
+    assert_predicate bin/"locksmith-cockpit", :exist?
   end
 end
