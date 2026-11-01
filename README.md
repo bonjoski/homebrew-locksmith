@@ -1,5 +1,15 @@
 # homebrew-locksmith 🔐
 
+> [!IMPORTANT]
+> **This tap has migrated to [`bonjoski/tap`](https://github.com/bonjoski/homebrew-tap)**  
+> Locksmith is now distributed alongside the entire Bonjoski sovereign AI agent security fabric (Fabrial, Aegisbox, Airlock, Argus, Shield, Conjoiner, and Locksmith) in the unified tap.
+>
+> ```bash
+> brew untap bonjoski/locksmith
+> brew tap bonjoski/tap
+> brew install bonjoski/tap/locksmith
+> ```
+
 [![Homebrew](https://img.shields.io/github/v/release/bonjoski/locksmith?label=homebrew&color=orange)](https://github.com/bonjoski/locksmith)
 [![Platform](https://img.shields.io/badge/platform-macOS-blue)](https://github.com/bonjoski/locksmith)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
