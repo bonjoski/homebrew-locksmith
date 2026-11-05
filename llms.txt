@@ -1,0 +1,16 @@
+# Homebrew Tap (Locksmith)
+
+> Dedicated Homebrew tap distributing codesigned Locksmith binaries, MCP server, and CyberArk Summon provider with macOS biometric entitlements.
+
+## Core Capabilities
+- Biometric Entitlement Packaging: Distributes codesigned Locksmith binaries preserving macOS Secure Enclave entitlements.
+- Multi-Binary Distribution: Delivers `locksmith` CLI, Model Context Protocol server, and CyberArk Summon provider in one formula.
+- Apple Silicon ARM64 & Intel x86_64 Support.
+
+## Usage
+- `brew tap bonjoski/locksmith`: Adds dedicated tap.
+- `brew install bonjoski/locksmith/locksmith`: Installs codesigned Locksmith binaries.
+- `brew upgrade bonjoski/locksmith/locksmith`: Updates to latest release.
+
+## Documentation
+- Parent Runbook: `docs/knowledge-base/11-distribution-tap.md` in repository `spanreed`
