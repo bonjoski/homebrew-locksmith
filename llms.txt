@@ -13,4 +13,4 @@
 - `brew upgrade bonjoski/locksmith/locksmith`: Updates to latest release.
 
 ## Documentation
-- Parent Runbook: `docs/knowledge-base/11-distribution-tap.md` in repository `spanreed`
+- Documentation: README.md & AGENTS.md

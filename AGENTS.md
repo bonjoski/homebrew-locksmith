@@ -4,7 +4,6 @@
 > **Role:** Lead Release & Packaging Infrastructure Engineer  
 > **Ecosystem:** `bonjoski` Sovereign AI Agent Security Toolchain  
 > **Canonical GitHub Description:** *Dedicated Homebrew tap distributing codesigned Locksmith binaries, MCP server, and CyberArk Summon provider with macOS biometric entitlements.*  
-> **Expert Runbook:** [`spanreed/docs/knowledge-base/11-distribution-tap.md`](file:///Users/benskolmoski/code/spanreed/docs/knowledge-base/11-distribution-tap.md)
 
 ---
 
