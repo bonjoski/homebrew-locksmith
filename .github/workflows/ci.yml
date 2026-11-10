@@ -1,4 +1,4 @@
-name: Tap Migration Guard
+name: Formula Audit
 
 permissions:
   contents: read
@@ -10,18 +10,26 @@ on:
     branches: [ main ]
 
 jobs:
-  validate-migration:
-    name: Verify tap_migrations.json & No Duplicate Formulas
+  validate-formulas:
+    name: Validate Ruby Syntax & Version Alignment
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Validate tap_migrations.json and ensure Formula/ is retired
+      - name: Check Ruby syntax and SHA-256 pinning on all formulas
         run: |
           set -euo pipefail
-          jq -e '.locksmith == "bonjoski/tap"' tap_migrations.json >/dev/null
-          if compgen -G "Formula/*.rb" >/dev/null; then
-            echo "ERROR: Formula/*.rb must remain empty so Homebrew honors tap_migrations.json" >&2
-            exit 1
+          for f in Formula/*.rb; do
+            echo "Validating ${f}..."
+            ruby -c "${f}"
+            grep -Eq 'sha256 "[0-9a-f]{64}"' "${f}"
+          done
+          # Ensure locksmith macOS and Linux blocks reference the declared formula version
+          LOCKSMITH_VER=$(sed -n 's/^  version "\(.*\)"/\1/p' Formula/locksmith.rb)
+          if grep -Eq 'releases/download/v[0-9]+\.[0-9]+\.[0-9]+' Formula/locksmith.rb; then
+            if grep -Ev "v${LOCKSMITH_VER}" Formula/locksmith.rb | grep -Eq 'releases/download/v[0-9]+'; then
+              echo "ERROR: Version drift detected inside Formula/locksmith.rb" >&2
+              exit 1
+            fi
           fi
