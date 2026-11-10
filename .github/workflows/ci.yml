@@ -1,0 +1,27 @@
+name: Tap Migration Guard
+
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [ main, feature/** ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-migration:
+    name: Verify tap_migrations.json & No Duplicate Formulas
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Validate tap_migrations.json and ensure Formula/ is retired
+        run: |
+          set -euo pipefail
+          jq -e '.locksmith == "bonjoski/tap"' tap_migrations.json >/dev/null
+          if compgen -G "Formula/*.rb" >/dev/null; then
+            echo "ERROR: Formula/*.rb must remain empty so Homebrew honors tap_migrations.json" >&2
+            exit 1
+          fi
